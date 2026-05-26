@@ -4,6 +4,8 @@
     "tsconfig.*.json": "jsonc",
     "package.json": "jsonc"
   },
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
