@@ -205,8 +205,8 @@ export function SettingsPage() {
         <Section title="Tampilan">
           <SettingRow
             icon={settings.theme === 'dark' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-            label="Mode Gelap"
-            description={settings.theme === 'dark' ? 'Aktif' : 'Nonaktif'}
+            label="Mode Tampilan"
+            description={settings.theme === 'dark' ? 'Gelap' : 'Terang'}
             action={<Switch checked={settings.theme === 'dark'} onChange={toggleTheme} />}
           />
         </Section>
