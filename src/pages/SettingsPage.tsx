@@ -203,12 +203,35 @@ export function SettingsPage() {
       <div className="px-4 md:px-6 space-y-5 pb-8">
         {/* Appearance */}
         <Section title="Tampilan">
-          <SettingRow
-            icon={settings.theme === 'dark' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-            label="Mode Tampilan"
-            description={settings.theme === 'dark' ? 'Gelap' : 'Terang'}
-            action={<Switch checked={settings.theme === 'dark'} onChange={toggleTheme} />}
-          />
+          <div className="py-4 px-5">
+            <p className="text-sm font-medium mb-3">Mode Tampilan</p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => { if (settings.theme !== 'light') toggleTheme() }}
+                className={cn(
+                  'flex-1 py-3 rounded-xl font-medium text-sm transition-all',
+                  settings.theme === 'light'
+                    ? 'bg-emerald-500/20 border border-emerald-500/50 text-emerald-400'
+                    : 'bg-accent border border-border text-muted-foreground hover:text-foreground'
+                )}
+              >
+                <Sun className="w-4 h-4 inline mr-2" />
+                Terang
+              </button>
+              <button
+                onClick={() => { if (settings.theme !== 'dark') toggleTheme() }}
+                className={cn(
+                  'flex-1 py-3 rounded-xl font-medium text-sm transition-all',
+                  settings.theme === 'dark'
+                    ? 'bg-emerald-500/20 border border-emerald-500/50 text-emerald-400'
+                    : 'bg-accent border border-border text-muted-foreground hover:text-foreground'
+                )}
+              >
+                <Moon className="w-4 h-4 inline mr-2" />
+                Gelap
+              </button>
+            </div>
+          </div>
         </Section>
 
         {/* Security */}
