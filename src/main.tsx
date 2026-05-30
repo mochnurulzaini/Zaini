@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './app/App'
 import './styles/globals.css'
+// Register PWA service worker (vite-plugin-pwa)
+import { registerSW } from 'virtual:pwa-register'
 
 const rootElement = document.getElementById('root')
 
@@ -14,4 +16,11 @@ if (!rootElement) {
       <App />
     </React.StrictMode>
   )
+    // register service worker for PWA (autoUpdate handled by plugin)
+    try {
+      const updateSW = registerSW({
+        onRegistered(r) { console.log('[PWA] SW registered:', r) },
+        onRegisterError(err) { console.error('[PWA] SW registration failed', err) }
+      })
+    } catch (e) { /* ignore in dev */ }
 }

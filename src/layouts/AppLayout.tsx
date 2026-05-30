@@ -196,7 +196,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             ? 'bg-card border border-border text-foreground'
             : 'bg-emerald-500 text-white'
         )}
-        style={{ boxShadow: fabOpen ? undefined : '0 0 20px rgba(16,185,129,0.4)', bottom: 'calc(env(safe-area-inset-bottom, 0px) + 5rem)' }}
+        style={{ boxShadow: fabOpen ? undefined : '0 0 20px rgba(16,185,129,0.4)', bottom: 'calc(env(safe-area-inset-bottom, 0px) + 3rem)' }}
       >
         <motion.div animate={{ rotate: fabOpen ? 45 : 0 }} transition={{ duration: 0.2 }}>
           <Plus className="w-6 h-6" />
