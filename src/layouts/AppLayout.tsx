@@ -159,7 +159,7 @@ export function AppLayout({ children }: AppLayoutProps) {
       </main>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-card/80 backdrop-blur-md border-t border-border safe-bottom">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-card/80 backdrop-blur-md border-t border-border safe-bottom fixed-safe-bottom">
         <div className="flex items-center justify-around px-2 py-2">
           {MOBILE_NAV.map(({ path, icon: Icon, label }) => {
             const active = location.pathname === path
@@ -191,12 +191,12 @@ export function AppLayout({ children }: AppLayoutProps) {
         whileTap={{ scale: 0.92 }}
         onClick={() => setFabOpen(o => !o)}
         className={cn(
-          'md:hidden fixed bottom-20 right-4 w-14 h-14 rounded-2xl shadow-glow z-50 flex items-center justify-center transition-all duration-200',
+          'md:hidden fixed bottom-20 right-4 w-14 h-14 rounded-2xl shadow-glow z-50 flex items-center justify-center transition-all duration-200 fixed-safe-right',
           fabOpen
             ? 'bg-card border border-border text-foreground'
             : 'bg-emerald-500 text-white'
         )}
-        style={{ boxShadow: fabOpen ? undefined : '0 0 20px rgba(16,185,129,0.4)' }}
+        style={{ boxShadow: fabOpen ? undefined : '0 0 20px rgba(16,185,129,0.4)', bottom: 'calc(env(safe-area-inset-bottom, 0px) + 5rem)' }}
       >
         <motion.div animate={{ rotate: fabOpen ? 45 : 0 }} transition={{ duration: 0.2 }}>
           <Plus className="w-6 h-6" />

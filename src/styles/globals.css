@@ -98,6 +98,10 @@
 
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
   .safe-top { padding-top: env(safe-area-inset-top, 0px); }
+  /* For fixed positioned elements (toolbars, buttons) use these to offset from device insets */
+  .fixed-safe-bottom { bottom: env(safe-area-inset-bottom, 0px); }
+  .fixed-safe-top { top: env(safe-area-inset-top, 0px); }
+  .fixed-safe-right { right: env(safe-area-inset-right, 0px); }
 }
 
 @layer utilities {

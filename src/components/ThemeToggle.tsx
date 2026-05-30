@@ -26,8 +26,12 @@ export default function ThemeToggle() {
     <button
       aria-label="Toggle theme"
       onClick={() => setIsLight(v => !v)}
-      className="z-50 fixed top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-xl glass-card flex items-center justify-center"
+      className="z-50 fixed w-10 h-10 rounded-xl glass-card flex items-center justify-center"
       title={isLight ? 'Switch to dark' : 'Switch to light'}
+      style={{
+        top: 'calc(env(safe-area-inset-top, 0px) + 1rem)',
+        right: 'calc(env(safe-area-inset-right, 0px) + 1rem)'
+      }}
     >
       {isLight ? <Sun className="w-5 h-5 text-foreground" /> : <Moon className="w-5 h-5 text-foreground" />}
     </button>
