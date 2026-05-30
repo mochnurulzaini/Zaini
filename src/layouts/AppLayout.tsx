@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/utils/cn'
 import { useUIStore } from '@/stores/uiStore'
+import ThemeToggle from '@/components/ThemeToggle'
 
 interface NavItem {
   path: string
@@ -216,6 +217,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           Transaksi Baru
         </NavLink>
       </motion.div>
+      <ThemeToggle />
     </div>
   )
 }
