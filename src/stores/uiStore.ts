@@ -35,14 +35,21 @@ interface UIStore {
 
 function applyTheme(theme: 'dark' | 'light' | 'system'): void {
   const root = document.documentElement
-  if (theme === 'dark') {
-    root.classList.add('dark')
-  } else if (theme === 'light') {
-    root.classList.remove('dark')
+  if (theme === 'light') {
+    root.classList.add('light')
+    localStorage.setItem('theme', 'light')
+  } else if (theme === 'dark') {
+    root.classList.remove('light')
+    localStorage.setItem('theme', 'dark')
   } else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (prefersDark) root.classList.add('dark')
-    else root.classList.remove('dark')
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches
+    if (prefersLight) {
+      root.classList.add('light')
+      localStorage.removeItem('theme')
+    } else {
+      root.classList.remove('light')
+      localStorage.removeItem('theme')
+    }
   }
 }
 
