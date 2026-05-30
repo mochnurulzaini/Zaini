@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/utils/cn'
 import { useUIStore } from '@/stores/uiStore'
+import { PullToRefresh } from '@/components/PullToRefresh'
 
 interface NavItem {
   path: string
@@ -152,9 +153,11 @@ export function AppLayout({ children }: AppLayoutProps) {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col overflow-hidden">
-        <div className="flex-1 overflow-y-auto pb-24 md:pb-0 no-scrollbar">
-          {children}
-        </div>
+        <PullToRefresh>
+          <div className="flex-1 overflow-y-auto pb-24 md:pb-0 no-scrollbar">
+            {children}
+          </div>
+        </PullToRefresh>
       </main>
 
       {/* Mobile Bottom Navigation */}
