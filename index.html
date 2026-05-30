@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -20,12 +20,23 @@
 
   <title>MoneyFlow</title>
 
+  <script>
+    // Apply light/dark class early to avoid flash. Priority: localStorage -> system preference.
+    (function(){
+      try {
+        var theme = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (theme === 'light' || (!theme && prefersLight)) document.documentElement.classList.add('light');
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; width: 100%; overflow-x: hidden; }
     body {
-      background-color: #0a0f0d;
-      color: #f0fdf4;
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
       font-family: 'DM Sans', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
