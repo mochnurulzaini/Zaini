@@ -19,8 +19,8 @@ if (!rootElement) {
     // register service worker for PWA (autoUpdate handled by plugin)
     try {
       const updateSW = registerSW({
-        onRegistered(r) { console.log('[PWA] SW registered:', r) },
-        onRegisterError(err) { console.error('[PWA] SW registration failed', err) }
+        onRegistered(r: any) { console.log('[PWA] SW registered:', r) },
+        onRegisterError(err: any) { console.error('[PWA] SW registration failed', err) }
       })
     } catch (e) { /* ignore in dev */ }
 }
